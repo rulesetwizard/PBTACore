@@ -1,0 +1,24 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>pbtadata</ScriptName>
+    <FolderID>0</FolderID>
+    <Script>
+function onInit()
+	
+	if Session.IsHost then 
+		tButton = { 
+			sIcon = "sidebar_icon_link_options",
+			tooltipres="sidebar_tooltip_pbtasetup",
+			class="PbtaSetup",
+			path="pbtasetup",
+		};
+	end
+	
+	DesktopManager.registerSidebarToolButton(tButton, 2);
+		
+end
+</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>

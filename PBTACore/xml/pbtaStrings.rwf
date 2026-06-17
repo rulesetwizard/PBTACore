@@ -1,0 +1,11 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>pbtaStrings</XmlName>
+    <FolderID>0</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+	&lt;string name="sidebar_tooltip_pbtasetup"&gt;PBTA Setup&lt;/string&gt;
+&lt;/root&gt;      
+	</XML>
+  </XMLFiles>
+</DocumentElement>
