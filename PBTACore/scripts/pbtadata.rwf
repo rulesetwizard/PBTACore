@@ -7,7 +7,7 @@ function onInit()
 	
 	if Session.IsHost then 
 		tButton = { 
-			sIcon = "sidebar_icon_link_options",
+			sIcon = "sidebar_icon_link_pbtasetup",
 			tooltipres="sidebar_tooltip_pbtasetup",
 			class="PbtaSetup",
 			path="pbtasetup",
@@ -15,6 +15,35 @@ function onInit()
 	end
 	
 	DesktopManager.registerSidebarToolButton(tButton, 2);
+
+
+	aRecordOverrides = {
+		["move"] = { 
+			bExport = true,
+			aDataMap = { "reference.moves" }, 
+			sRecordDisplayClass = "move", 
+			sSidebarCategory  = "player",
+		},		
+		["playbook"] = { 
+			bExport = true,
+			aDataMap = { "reference.playbooks" }, 
+			sRecordDisplayClass = "playbook", 
+			sSidebarCategory  = "player",
+		},	
+	}
+
+	LibraryData.overrideRecordTypes(aRecordOverrides);
+
+	if User.isHost() then
+		local moves = DB.findNode("reference.moves");
+		if moves then
+			moves.setPublic(true);
+		end
+		local archetypes = DB.findNode("reference.playbooks");
+		if archetypes then
+			archetypes.setPublic(true);
+		end
+	end		
 
 	-- Set character initialization
 	RecordManager.setRecordAddCallback("charsheet", onAddCharacter);
