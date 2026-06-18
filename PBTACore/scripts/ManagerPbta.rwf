@@ -1,0 +1,26 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>ManagerPbta</ScriptName>
+    <FolderID>0</FolderID>
+    <Script>
+function resolveRoll(rSource, rTarget, rRoll)
+    local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
+    
+	local total = rRoll.aDice[1].result + rRoll.aDice[2].result + rRoll.nMod + rRoll.nBonuses;
+    if total &gt;= 10 then
+		rMessage.text = rMessage.text .. ' [' .. Interface.getString("COMPLETE SUCCESS") .. ']';
+    else
+		if total &gt;= 7 then
+			rMessage.text = rMessage.text .. ' [' .. Interface.getString("PARTIAL SUCCESS") .. ']';
+		else
+			rMessage.text = rMessage.text .. ' [' .. Interface.getString("FAILURE") .. ']';
+		end
+	end
+	
+    Comm.deliverChatMessage(rMessage);    
+end
+</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>

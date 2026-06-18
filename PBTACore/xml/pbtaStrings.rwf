@@ -5,6 +5,11 @@
     <XML>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;root&gt;
 	&lt;string name="sidebar_tooltip_pbtasetup"&gt;PBTA Setup&lt;/string&gt;
+	
+  &lt;string name="COMPLETE SUCCESS"&gt;COMPLETE SUCCESS&lt;/string&gt;
+  &lt;string name="PARTIAL SUCCESS"&gt;PARTIAL SUCCESS&lt;/string&gt;
+  &lt;string name="FAILURE"&gt;FAILURE&lt;/string&gt;
+	
 &lt;/root&gt;      
 	</XML>
   </XMLFiles>
