@@ -15,8 +15,22 @@ function onInit()
 	end
 	
 	DesktopManager.registerSidebarToolButton(tButton, 2);
-		
+
+	-- Set character initialization
+	RecordManager.setRecordAddCallback("charsheet", onAddCharacter);
+	
 end
+
+function onAddCharacter(nodeRecord)
+	local nodeAttributesSetup = DB.findNode("pbtasetup.attributes"); 
+	local nodeAttributesChar = DB.createChild(nodeRecord, "attributes");
+	for _, attribute in pairs(DB.getChildren(nodeAttributesSetup)) do
+		local nodeAttribute = DB.createChild(nodeAttributesChar, DB.getValue(attribute, "name"));
+		DB.setValue(nodeAttribute, "name", "string", DB.getValue(attribute, "name"));
+	end
+	
+end
+
 </Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />

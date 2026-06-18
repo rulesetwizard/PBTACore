@@ -178,7 +178,7 @@
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"lstAttributes"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DataSource","Value":{"@xsi:type":"xsd:string","#text":"attributes"}},
+      {"Name":"DataSource","Value":{"@xsi:type":"xsd:string","#text":".attributes"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"179"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"318"}},
