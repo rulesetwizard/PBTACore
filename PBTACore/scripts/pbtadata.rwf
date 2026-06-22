@@ -51,12 +51,24 @@ function onInit()
 end
 
 function onAddCharacter(nodeRecord)
+	-- Add game attributes
 	local nodeAttributesSetup = DB.findNode("pbtasetup.attributes"); 
 	local nodeAttributesChar = DB.createChild(nodeRecord, "attributes");
 	for _, attribute in pairs(DB.getChildren(nodeAttributesSetup)) do
 		local nodeAttribute = DB.createChild(nodeAttributesChar, DB.getValue(attribute, "name"));
 		DB.setValue(nodeAttribute, "name", "string", DB.getValue(attribute, "name"));
 	end
+	
+	-- Add basic moves
+	local nodeMovesChar = DB.createChild(nodeRecord, "moveslist");
+	local nodeMoves = DB.findNode("reference.moves");
+	for _, move in pairs(DB.getChildren(nodeMoves)) do
+		if DB.getValue(move, "basic", 0) == 1 then
+			local nodeBasicMove = DB.createChild(nodeMovesChar, DB.getValue(move, "name"));
+			DB.setValue(nodeBasicMove, "name", "string", DB.getValue(move, "name"));
+			DB.setValue(nodeBasicMove, "attribute", "string", DB.getValue(move, "attribute"));
+		end;
+	end;
 	
 end
 
